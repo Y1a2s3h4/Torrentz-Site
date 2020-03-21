@@ -1,0 +1,55 @@
+.navbar {
+  height: 75px;
+}
+.bg-dark {
+  background-color: #212529 !important;
+}
+.dropdown-menu {
+  margin-left: -2rem;
+}
+.dropdown-item {
+  font-size: 0.8rem;
+  margin: 0.3rem 0;
+  padding: 0 1rem;
+}
+.fal,
+.fab {
+  padding: 0.3rem;
+  margin-right: 0.8rem;
+}
+.f-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.form-control {
+  border-radius: 0;
+  width: calc(57% + 5px);
+  height: 55px;
+  background-color: #212529;
+  border: 2px solid #212529;
+  display: block;
+  font-size: 30px;
+  transition: all 0.3s linear !important;
+}
+.form-control:focus {
+  color: #60757d;
+  background-color: #212529;
+  border: 2px solid #212529;
+  outline: none;
+  box-shadow: none;
+}
+.fa-search {
+  font-size: 30px;
+  color: #60757d;
+  z-index: 2;
+  left: 76%;
+}
+
+.c-pointer {
+  cursor: pointer;
+}
+.mt-custom {
+  margin-top: 50%;
+}
