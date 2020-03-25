@@ -1,8 +1,5 @@
-.navbar {
-  height: 75px;
-}
 .bg-dark {
-  background-color: #212529 !important;
+  background-color: transparent !important;
 }
 .dropdown-menu {
   margin-left: -2rem;
@@ -17,26 +14,25 @@
   padding: 0.3rem;
   margin-right: 0.8rem;
 }
-.f-center {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
+
 .form-control {
+  position: relative;
   border-radius: 0;
-  width: calc(57% + 5px);
   height: 55px;
-  background-color: #212529;
-  border: 2px solid #212529;
+  border: none;
+  border-bottom: 1px solid #212529;
   display: block;
   font-size: 30px;
   transition: all 0.3s linear !important;
 }
+.f-center {
+  position: absolute;
+  transform: translateX(-15%);
+}
 .form-control:focus {
   color: #60757d;
-  background-color: #212529;
-  border: 2px solid #212529;
+  border: none;
+  border-bottom: 1px solid #212529;
   outline: none;
   box-shadow: none;
 }
@@ -44,12 +40,77 @@
   font-size: 30px;
   color: #60757d;
   z-index: 2;
+  top: 12%;
   left: 76%;
 }
 
 .c-pointer {
   cursor: pointer;
 }
-.mt-custom {
-  margin-top: 50%;
+/* .mt-custom {
+  margin-top: 30%;
+} */
+.table-dark {
+  background-color: transparent;
 }
+.table td {
+  border-top: none;
+}
+.table thead th {
+  border-bottom: 1px solid #dee2e6;
+}
+.btn-light {
+  background-color: transparent;
+  border-color: #60757d;
+  color: #60757d;
+  border-radius: 0;
+}
+.btn-light:hover {
+  background-color: transparent;
+  border-color: #60757d;
+  color: #60757d;
+}
+.btn:focus,
+.btn-light:focus {
+  box-shadow: none;
+}
+.btn-light:not(:disabled):not(.disabled):active:focus {
+  box-shadow: none;
+}
+.top-cat {
+  font-size: 1em;
+}
+
+@media (max-width: 574px) {
+  .table {
+    font-size: 0.7rem;
+  }
+  .heading_top-cat {
+    font-size: 1.5rem;
+  }
+  .fa-search {
+    /* top: 18%; */
+    bottom: 2%;
+    left: 83%;
+  }
+  /*.table th,
+  .table td {
+     padding-right: 0; 
+  }*/
+}
+
+/* .dropdown-item {
+  color: #fff;
+}
+.dropdown-item:active {
+  color: #000;
+  text-decoration: none;
+  background-color: #fff;
+}
+.dropdown-menu {
+  background-color: transparent;
+  border: 1px solid #60757d;
+} 
+.dropdown-divider {
+  border: 1px solid #60757d;
+}*/

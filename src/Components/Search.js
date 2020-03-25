@@ -5,14 +5,14 @@ export default class Search extends Component {
   constructor() {
     super();
     this.state = {
-      input: "parasite",
+      input: "",
       data: [],
       showTable: false
     };
   }
   search_input = e => {
     e.preventDefault();
-    fetch(`http://3.7.5.138:8000/search/${this.state.input}`)
+    fetch(`https://torrentz-api.herokuapp.com/search/${this.state.input}`)
       .then(res => res.json())
       .then(result => {
         console.log(result);
@@ -32,14 +32,14 @@ export default class Search extends Component {
         <form onSubmit={this.search_input}>
           <i
             onSubmit={this.search_input}
-            class=" far fa-search f-center c-pointer"
+            className="far fa-search f-center"
           ></i>
           <input
             type="text"
             placeholder="Search"
             id="input"
             onChange={this.inputValue}
-            className="f-center form-control"
+            className="w-100 my-5 form-control"
           />
         </form>
         <div className="container">
