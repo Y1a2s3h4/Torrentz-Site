@@ -80,7 +80,9 @@
 .top-cat {
   font-size: 1em;
 }
-
+.underline {
+  text-decoration: underline;
+}
 @media (max-width: 574px) {
   .table {
     font-size: 0.7rem;

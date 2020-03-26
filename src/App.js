@@ -13,7 +13,7 @@ function App() {
       <Switch>
         <Route path="/" exact component={Search} />
         <Route path="/top" exact component={Top} />
-        {/* <Route path="/trending" component={Trending} /> */}
+        <Route path="/trending" component={Trending} />
         <Route path="/top/:id" component={TopCategories} />
       </Switch>
     </Router>
