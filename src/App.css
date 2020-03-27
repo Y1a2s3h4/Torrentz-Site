@@ -83,6 +83,12 @@
 .underline {
   text-decoration: underline;
 }
+.hover:hover {
+  background-color: #000 !important;
+  border-radius: 0.125rem !important;
+  color: #fff;
+  box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15) !important;
+}
 @media (max-width: 574px) {
   .table {
     font-size: 0.7rem;
@@ -91,9 +97,7 @@
     font-size: 1.5rem;
   }
   .fa-search {
-    /* top: 18%; */
-    bottom: 2%;
-    left: 83%;
+    display: none;
   }
   /*.table th,
   .table td {

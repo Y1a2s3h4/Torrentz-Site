@@ -1,63 +1,57 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import Table from "./Table";
-export default function Top() {
+export default function Popular() {
   useEffect(() => {
-    trending();
+    populars();
   }, []);
-  const [trend, setTrend] = useState([]);
-  const trending = () => {
-    fetch(`https://torrentz-api.herokuapp.com/trending`)
+  const [popular, setPopular] = useState([]);
+  const populars = () => {
+    const arr = [
+      "movies",
+      "anime",
+      "tv",
+      "games",
+      "apps",
+      "music",
+      "documentaries",
+      "other"
+    ];
+    const random = arr[Math.floor(Math.random() * arr.length)];
+    fetch(`https://torrentz-api.herokuapp.com/popular/${random}/d`)
       .then(res => res.json())
       .then(data => {
         console.log(data);
-        setTrend(data);
+        setPopular(data);
       });
   };
-  const trendWeek = () => {
-    fetch(`https://torrentz-api.herokuapp.com/trending/all/w`)
-      .then(res => res.json())
-      .then(data => {
-        console.log(data);
-        setTrend(data);
-      });
-  };
+
   const categories_week = event => {
     const text = event.target.textContent;
     const lowerText = text.toLowerCase();
-    fetch(`https://torrentz-api.herokuapp.com/trending/${lowerText}/w`)
+    fetch(`https://torrentz-api.herokuapp.com/popular/${lowerText}/w`)
       .then(res => res.json())
       .then(data => {
         console.log(data);
-        setTrend(data);
+        setPopular(data);
       });
   };
   const categories_day = event => {
     const text = event.target.textContent;
     const lowerText = text.toLowerCase();
-
-    fetch(`https://torrentz-api.herokuapp.com/trending/${lowerText}/d`)
+    fetch(`https://torrentz-api.herokuapp.com/popular/${lowerText}/d`)
       .then(res => res.json())
       .then(data => {
         console.log(data);
-        setTrend(data);
+        setPopular(data);
       });
   };
   return (
     <div className="container">
-      <h1 onClick={trending} className="c-pointer underline mt-5">
-        Trending
+      <h1 className="underline c-pointer" onClick={populars}>
+        Popular
       </h1>
-      <p className="by_week">
-        Get trending torrents of the
-        <a onClick={trendWeek} href="#week">
-          {" "}
-          week{" "}
-        </a>
-        from all categories
-      </p>
       <p className="categories_week">
-        Get Trending Category torrents of the week.
+        Get Popular Category torrents of the week.
         <br />
         <div className="btn-group my-3">
           <button type="button" className="btn btn-light">
@@ -126,7 +120,7 @@ export default function Top() {
               className="dropdown-item top-cat"
               href="#documentaries"
             >
-              Docs
+              Documentaries
             </a>
             <div className="dropdown-divider"></div>
             <a
@@ -209,7 +203,7 @@ export default function Top() {
               className="dropdown-item top-cat"
               href="#documentaries"
             >
-              Docs
+              Documentaries
             </a>
             <div className="dropdown-divider"></div>
             <a
@@ -222,7 +216,7 @@ export default function Top() {
           </div>
         </div>
       </p>
-      <div className="container">{<Table data={trend} />}</div>
+      <div className="container">{<Table data={popular} />}</div>
     </div>
   );
 }

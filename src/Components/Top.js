@@ -18,16 +18,25 @@ export default function Top(props) {
       })
       .catch(err => console.log(err));
   };
-
+  const top_categories = event => {
+    const text = event.target.textContent;
+    const lowerText = text.toLowerCase();
+    fetch(`https://torrentz-api.herokuapp.com/top/${lowerText}`)
+      .then(res => res.json())
+      .then(data => {
+        console.log(data);
+        setTop(data);
+      });
+  };
   return (
     <div className="container">
       <h1 className="mt-5 heading_top-cat">Get Top Torrentz in Categories:</h1>
       <div className="btn-group my-5">
-        <button type="button" className="btn btn-light">
+        <button onClick={disp} type="button" className="btn btn-light">
           Top Torrentz
         </button>
         <button
-          type="button"
+          type="submit"
           className="btn btn-light dropdown-toggle dropdown-toggle-split"
           data-toggle="dropdown"
           aria-haspopup="true"
@@ -36,97 +45,72 @@ export default function Top(props) {
           <span className="sr-only">Toggle Dropdown</span>
         </button>
         <div className="dropdown-menu">
-          <Link
-            to={`/top/movies`}
+          <a
+            onClick={top_categories}
             className="dropdown-item top-cat"
             href="#movies"
           >
             Movies
-          </Link>
+          </a>
           <div className="dropdown-divider"></div>
-          <Link
-            to={`/top/anime`}
+          <a
+            onClick={top_categories}
             className="dropdown-item top-cat"
             href="#anime"
           >
             Anime
-          </Link>
+          </a>
           <div className="dropdown-divider"></div>
-          <Link
-            to={`/top/tv`}
+          <a
+            onClick={top_categories}
             className="dropdown-item top-cat"
             href="#tvshows"
           >
-            T.v Shows
-          </Link>
+            TV
+          </a>
           <div className="dropdown-divider"></div>
-          <Link
-            to={`/top/games`}
+          <a
+            onClick={top_categories}
             className="dropdown-item top-cat"
             href="#games"
           >
             Games
-          </Link>
+          </a>
           <div className="dropdown-divider"></div>
-          <Link to={`/top/apps`} className="dropdown-item top-cat" href="#apps">
+          <a
+            onClick={top_categories}
+            className="dropdown-item top-cat"
+            href="#apps"
+          >
             Apps
-          </Link>
+          </a>
           <div className="dropdown-divider"></div>
-          <Link
-            to={`/top/music`}
+          <a
+            onClick={top_categories}
             className="dropdown-item top-cat"
             href="#music"
           >
             Music
-          </Link>
+          </a>
           <div className="dropdown-divider"></div>
-          <Link
-            to={`/top/docs`}
+          <a
+            onClick={top_categories}
             className="dropdown-item top-cat"
             href="#documentaries"
           >
-            Documentaries
-          </Link>
+            Docs
+          </a>
           <div className="dropdown-divider"></div>
-          <Link
-            to={`/top/other`}
+          <a
+            onClick={top_categories}
             className="dropdown-item top-cat"
             href="#other"
           >
-            Others
-          </Link>
+            Other
+          </a>
         </div>
       </div>
       <div className="container">{<Table data={top} />}</div>
-      {/* <table className="table table-hover table-dark mt-4">
-        <thead>
-          <tr>
-            <th scope="col">NAME</th>
-            <th scope="col">SE</th>
-            <th scope="col">LE</th>
-            <th scope="col">SIZE</th>
-          </tr>
-        </thead>
-        <tbody>
-          {top.map((item, i) => {
-            return (
-              <tr
-                key={i}
-                className="c-pointer"
-                onClick={getMagnetLink.bind(this, item.link)}
-              >
-                <td>
-                  <span className={`${item.ico} mx-2`}></span>
-                  {item.name}
-                </td>
-                <td className="text-success">{item.se}</td>
-                <td className="text-danger">{item.le}</td>
-                <td>{item.size}</td>
-              </tr>
-            );
-          })}
-        </tbody>
-      </table> */}
     </div>
   );
 }
