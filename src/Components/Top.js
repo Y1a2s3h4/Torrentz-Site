@@ -29,20 +29,20 @@ export default function Top(props) {
       });
   };
   return (
-    <div className="container">
-      <h1 className="mt-5 heading_top-cat">Get Top Torrentz in Categories:</h1>
+    <div className="container ">
+      <h1 className="mt-5 heading_top-cat text-white">
+        Get Top Torrentz in Categories:
+      </h1>
       <div className="btn-group my-5">
-        <button onClick={disp} type="button" className="btn btn-light">
-          Top Torrentz
-        </button>
         <button
-          type="submit"
-          className="btn btn-light dropdown-toggle dropdown-toggle-split"
+          onClick={disp}
+          type="button"
+          className="btn btn-light dropdown-toggle"
           data-toggle="dropdown"
           aria-haspopup="true"
           aria-expanded="false"
         >
-          <span className="sr-only">Toggle Dropdown</span>
+          Top Torrentz
         </button>
         <div className="dropdown-menu">
           <a

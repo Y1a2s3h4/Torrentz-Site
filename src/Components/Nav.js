@@ -4,14 +4,14 @@ import brand from "../vendors/brand.png";
 export default function Nav() {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-dark">
-      <div className="container-fluid text-uppercase">
-        <Link to="/" className="navbar-brand" href="#home">
-          <img
+      <div className="container-fluid ">
+        <Link to="/" className="text-white navbar-brand" href="#home">
+          {/* <img
             className="d-inline-block align-top mr-2"
             style={{ width: "30px", height: "30px" }}
             src={brand}
             alt="..."
-          />
+          /> */}
           Torrentz
         </Link>
         <button
@@ -29,23 +29,23 @@ export default function Nav() {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav ml-auto">
             <li className="nav-item">
-              <Link className="nav-link" to="/top">
+              <Link className="text-white nav-link" to="/top">
                 Top
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/trending">
+              <Link className="text-white nav-link" to="/trending">
                 Trending
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/popular">
+              <Link className="text-white nav-link" to="/popular">
                 Popular
               </Link>
             </li>
             <li className="nav-item dropdown">
               <a
-                className="nav-link dropdown-toggle"
+                className="text-white nav-link dropdown-toggle"
                 href="#dropdown"
                 id="navbarDropdown"
                 role="button"

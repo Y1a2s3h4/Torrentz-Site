@@ -30,19 +30,15 @@ export default class Search extends Component {
     return (
       <div className="container">
         <form onSubmit={this.search_input}>
-          <i
-            onSubmit={this.search_input}
-            className="far fa-search f-center"
-          ></i>
           <input
             type="text"
             placeholder="Search"
             id="input"
             onChange={this.inputValue}
-            className="w-100 my-5 form-control"
+            className=" f-pos w-100 my-5 form-control"
           />
         </form>
-        <div className="container">
+        <div className="container mt-custom">
           {this.state.showTable && <Table data={this.state.data} />}
         </div>
       </div>

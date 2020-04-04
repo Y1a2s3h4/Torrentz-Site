@@ -46,7 +46,7 @@ export default function Popular() {
       });
   };
   return (
-    <div className="container">
+    <div className="container text-white">
       <h1 className="underline c-pointer" onClick={populars}>
         Popular
       </h1>
@@ -54,18 +54,16 @@ export default function Popular() {
         Get Popular Category torrents of the week.
         <br />
         <div className="btn-group my-3">
-          <button type="button" className="btn btn-light">
-            Categories by week
-          </button>
           <button
             type="button"
-            className="btn btn-light dropdown-toggle dropdown-toggle-split"
+            className="btn btn-light dropdown-toggle"
             data-toggle="dropdown"
             aria-haspopup="true"
             aria-expanded="false"
           >
-            <span className="sr-only">Toggle Dropdown</span>
+            Categories by week
           </button>
+
           <div className="dropdown-menu">
             <a
               onClick={categories_week}
@@ -137,18 +135,16 @@ export default function Popular() {
         Get Trending Category torrents of the day.
         <br />
         <div className="btn-group my-3">
-          <button type="button" className="btn btn-light">
-            Categories by day
-          </button>
           <button
             type="button"
-            className="btn btn-light dropdown-toggle dropdown-toggle-split"
+            className="btn btn-light dropdown-toggle"
             data-toggle="dropdown"
             aria-haspopup="true"
             aria-expanded="false"
           >
-            <span className="sr-only">Toggle Dropdown</span>
+            Categories by day
           </button>
+
           <div className="dropdown-menu">
             <a
               onClick={categories_day}

@@ -44,13 +44,13 @@ export default function Top() {
       });
   };
   return (
-    <div className="container">
+    <div className="container text-white">
       <h1 onClick={trending} className="c-pointer underline mt-5">
         Trending
       </h1>
       <p className="by_week">
         Get trending torrents of the
-        <a onClick={trendWeek} href="#week">
+        <a onClick={trendWeek} href="#week" style={{ color: "#FFB6C1" }}>
           {" "}
           week{" "}
         </a>
@@ -60,19 +60,17 @@ export default function Top() {
         Get Trending Category torrents of the week.
         <br />
         <div className="btn-group my-3">
-          <button type="button" className="btn btn-light">
-            Categories by week
-          </button>
           <button
             type="button"
-            className="btn btn-light dropdown-toggle dropdown-toggle-split"
+            className="btn btn-light dropdown-toggle"
             data-toggle="dropdown"
             aria-haspopup="true"
             aria-expanded="false"
           >
-            <span className="sr-only">Toggle Dropdown</span>
+            Categories by week
           </button>
-          <div className="dropdown-menu">
+
+          <div className="dropdown-menu" style={{ marginLeft: "8rem" }}>
             <a
               onClick={categories_week}
               className="dropdown-item top-cat"
@@ -143,19 +141,17 @@ export default function Top() {
         Get Trending Category torrents of the day.
         <br />
         <div className="btn-group my-3">
-          <button type="button" className="btn btn-light">
-            Categories by day
-          </button>
           <button
             type="button"
-            className="btn btn-light dropdown-toggle dropdown-toggle-split"
+            className="btn btn-light dropdown-toggle"
             data-toggle="dropdown"
             aria-haspopup="true"
             aria-expanded="false"
           >
-            <span className="sr-only">Toggle Dropdown</span>
+            Categories by day
           </button>
-          <div className="dropdown-menu">
+
+          <div className="dropdown-menu" style={{ marginLeft: "8rem" }}>
             <a
               onClick={categories_day}
               className="dropdown-item top-cat"

@@ -12,10 +12,16 @@ export default class Table extends Component {
         .catch(err => console.log(err) && alert("Something went wrong! :("));
     };
     return (
-      <div className="table-responsive">
-        <table className="table table-hover  mt-custom">
+      <div
+        className="table-responsive mb-5"
+        style={{
+          backgroundColor: "#fff",
+          borderRadius: "7px"
+        }}
+      >
+        <table className="table table-hover">
           <thead>
-            <tr>
+            <tr className="text-purple">
               <th scope="col">NAME</th>
               <th scope="col">SE</th>
               <th scope="col">LE</th>
@@ -28,7 +34,7 @@ export default class Table extends Component {
               return (
                 <tr
                   key={i}
-                  className="c-pointer"
+                  className="c-pointer dark-purple"
                   onClick={getMagnetLink.bind(this, link)}
                 >
                   <td>
