@@ -110,7 +110,15 @@ export default function Top(props) {
           </a>
         </div>
       </div>
-      <div className="container">{<Table data={top} />}</div>
+      <div
+        className="container"
+        style={{
+          backgroundColor: "#fff",
+          borderRadius: "7px"
+        }}
+      >
+        {<Table data={top} />}
+      </div>
     </div>
   );
 }

@@ -212,7 +212,15 @@ export default function Popular() {
           </div>
         </div>
       </p>
-      <div className="container">{<Table data={popular} />}</div>
+      <div
+        className="container"
+        style={{
+          backgroundColor: "#fff",
+          borderRadius: "7px"
+        }}
+      >
+        {<Table data={popular} />}
+      </div>
     </div>
   );
 }

@@ -218,7 +218,15 @@ export default function Top() {
           </div>
         </div>
       </p>
-      <div className="container">{<Table data={trend} />}</div>
+      <div
+        className="container"
+        style={{
+          backgroundColor: "#fff",
+          borderRadius: "7px"
+        }}
+      >
+        {<Table data={trend} />}
+      </div>
     </div>
   );
 }

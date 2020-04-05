@@ -56,28 +56,25 @@ export default function Nav() {
                 Categories
               </a>
               <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                <Link className="dropdown-item hover" to="/movies">
+                <Link className="dropdown-item hover" to="/categories/movies">
                   <i className="fal fa-film pr-2"></i>Movies
                 </Link>
-                <Link className="dropdown-item hover" to="/anime">
+                <Link className="dropdown-item hover" to="/categories/anime">
                   <i className="fal fa-user-ninja pr-2"></i>Anime
                 </Link>
-                <Link className="dropdown-item hover" to="/tvshows">
+                <Link className="dropdown-item hover" to="/categories/tv">
                   <i className="fal fa-tv-alt p-1"></i>T.V Shows
                 </Link>
-                <Link className="dropdown-item hover" to="/games">
+                <Link className="dropdown-item hover" to="/categories/games">
                   <i className="fal fa-gamepad p-1"></i>Games
                 </Link>
-                <Link className="dropdown-item hover" to="/apps">
+                <Link className="dropdown-item hover" to="/categories/apps">
                   <i className="fab fa-windows pr-2"></i>Apps
                 </Link>
-                <Link className="dropdown-item hover" to="/music">
+                <Link className="dropdown-item hover" to="/categories/music">
                   <i className="fal fa-music-alt pr-2"></i>Music
                 </Link>
-                <Link className="dropdown-item hover" to="/documentaries">
-                  <i className="fal fa-camera-movie"></i>Documentaries
-                </Link>
-                <Link className="dropdown-item hover" to="/others">
+                <Link className="dropdown-item hover" to="/categories/other">
                   <i className="fal fa-box-open"></i>Others
                 </Link>
               </div>
