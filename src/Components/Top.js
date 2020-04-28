@@ -1,24 +1,26 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import Table from "./Table";
-
+import Preloader from "./Preloader";
 export default function Top(props) {
   useEffect(() => {
     disp();
   }, []);
   const [top, setTop] = useState([]);
-  // const [topCategories, setTopCategories] = useState("");
+  const [isLoading, setLoading] = useState(false);
 
   const disp = () => {
+    setLoading(true);
     fetch(`https://torrentz-api.herokuapp.com/top`)
       .then(res => res.json())
       .then(data => {
         console.log(data);
         setTop(data);
+        setLoading(false);
       })
       .catch(err => console.log(err));
   };
   const top_categories = event => {
+    setLoading(true);
     const text = event.target.textContent;
     const lowerText = text.toLowerCase();
     fetch(`https://torrentz-api.herokuapp.com/top/${lowerText}`)
@@ -26,6 +28,7 @@ export default function Top(props) {
       .then(data => {
         console.log(data);
         setTop(data);
+        setLoading(false);
       });
   };
   return (
@@ -118,6 +121,7 @@ export default function Top(props) {
         }}
       >
         {<Table data={top} />}
+        <center>{isLoading && <Preloader />}</center>
       </div>
     </div>
   );

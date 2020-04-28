@@ -10,22 +10,22 @@ export default class Search extends Component {
       input: "",
       data: [],
       showTable: false,
-      isLoading: false
+      isLoading: false,
     };
   }
-  search_input = e => {
+  search_input = (e) => {
     e.preventDefault();
     this.setState({ showTable: true, isLoading: true });
     fetch(`https://torrentz-api.herokuapp.com/search/${this.state.input}`)
-      .then(res => res.json())
-      .then(result => {
+      .then((res) => res.json())
+      .then((result) => {
         console.log(result);
         this.setState({ data: result, isLoading: false }, () => {
           console.log(this.state);
         });
       });
   };
-  inputValue = e => {
+  inputValue = (e) => {
     this.setState({ input: [e.target.value] });
   };
 
@@ -45,11 +45,18 @@ export default class Search extends Component {
           className="container mt-custom"
           style={{
             backgroundColor: "#fff",
-            borderRadius: "7px"
+            borderRadius: "7px",
           }}
         >
-          {this.state.showTable && <Table data={this.state.data} />}
-          {this.state.isLoading && <Preloader />}
+          {/* {this.state.showTable && <Table data={this.state.data} />}
+          <center>{this.state.isLoading && <Preloader />}</center> */}
+          {this.state.isLoading ? (
+            <center>
+              <Preloader />
+            </center>
+          ) : (
+            this.state.showTable && <Table data={this.state.data} />
+          )}
         </div>
       </div>
     );

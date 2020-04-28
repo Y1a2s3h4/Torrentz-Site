@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
 import Table from "./Table";
+import Preloader from "./Preloader";
 export default function Popular() {
   useEffect(() => {
     populars();
   }, []);
   const [popular, setPopular] = useState([]);
+  const [isLoading, setLoading] = useState(false);
   const populars = () => {
     const arr = [
       "movies",
@@ -17,32 +19,38 @@ export default function Popular() {
       "other"
     ];
     const random = arr[Math.floor(Math.random() * arr.length)];
+    setLoading(true);
     fetch(`https://torrentz-api.herokuapp.com/popular/${random}/d`)
       .then(res => res.json())
       .then(data => {
         console.log(data);
         setPopular(data);
+        setLoading(false);
       });
   };
 
   const categories_week = event => {
     const text = event.target.textContent;
     const lowerText = text.toLowerCase();
+    setLoading(true);
     fetch(`https://torrentz-api.herokuapp.com/popular/${lowerText}/w`)
       .then(res => res.json())
       .then(data => {
         console.log(data);
         setPopular(data);
+        setLoading(false);
       });
   };
   const categories_day = event => {
     const text = event.target.textContent;
     const lowerText = text.toLowerCase();
+    setLoading(true);
     fetch(`https://torrentz-api.herokuapp.com/popular/${lowerText}/d`)
       .then(res => res.json())
       .then(data => {
         console.log(data);
         setPopular(data);
+        setLoading(false);
       });
   };
   return (
@@ -220,6 +228,7 @@ export default function Popular() {
         }}
       >
         {<Table data={popular} />}
+        <center>{isLoading && <Preloader />}</center>
       </div>
     </div>
   );

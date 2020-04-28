@@ -1,28 +1,35 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Table from "./Table";
+import Preloader from "./Preloader";
 export default function Top() {
   useEffect(() => {
     trending();
   }, []);
   const [trend, setTrend] = useState([]);
+  const [isLoading, setLoading] = useState(false);
   const trending = () => {
+    setLoading(true);
     fetch(`https://torrentz-api.herokuapp.com/trending`)
       .then(res => res.json())
       .then(data => {
         console.log(data);
         setTrend(data);
+        setLoading(false);
       });
   };
   const trendWeek = () => {
+    setLoading(true);
     fetch(`https://torrentz-api.herokuapp.com/trending/all/w`)
       .then(res => res.json())
       .then(data => {
         console.log(data);
         setTrend(data);
+        setLoading(false);
       });
   };
   const categories_week = event => {
+    setLoading(true);
     const text = event.target.textContent;
     const lowerText = text.toLowerCase();
     fetch(`https://torrentz-api.herokuapp.com/trending/${lowerText}/w`)
@@ -30,17 +37,19 @@ export default function Top() {
       .then(data => {
         console.log(data);
         setTrend(data);
+        setLoading(false);
       });
   };
   const categories_day = event => {
     const text = event.target.textContent;
     const lowerText = text.toLowerCase();
-
+    setLoading(true);
     fetch(`https://torrentz-api.herokuapp.com/trending/${lowerText}/d`)
       .then(res => res.json())
       .then(data => {
         console.log(data);
         setTrend(data);
+        setLoading(false);
       });
   };
   return (
@@ -226,6 +235,7 @@ export default function Top() {
         }}
       >
         {<Table data={trend} />}
+        <center>{isLoading && <Preloader />}</center>
       </div>
     </div>
   );

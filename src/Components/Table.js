@@ -3,19 +3,15 @@ import React, { Component } from "react";
 export default class Table extends Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      isLoading: true
-    };
   }
   render() {
-    const getMagnetLink = link => {
+    const getMagnetLink = (link) => {
       fetch(`https://torrentz-api.herokuapp.com/torrent?link=${link}`)
-        .then(res => res.text())
-        .then(data => {
+        .then((res) => res.text())
+        .then((data) => {
           window.open(data);
         })
-        .catch(err => console.log(err) && alert("Something went wrong! :("));
+        .catch((err) => console.log(err) && alert("Something went wrong! :("));
     };
     return (
       <div className="table-responsive mb-5">
